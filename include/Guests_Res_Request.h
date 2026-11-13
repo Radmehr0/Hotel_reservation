@@ -1,6 +1,5 @@
 #ifndef RES_REQUEST_H
 #define RES_REQUEST_H
-
 #include "Guests.h"
 
 class Guests_Res_Request

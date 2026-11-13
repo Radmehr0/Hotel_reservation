@@ -6,14 +6,12 @@
 #include <iostream>
 #include <array>
 
-using namespace std;
-
 class Guests
 {
 private:
     Date checkIN;
     Date checkOUT;
-    array <Information, 4> guestsInfo;          //max 4 guests
+    std::array <Information, 4> guestsInfo;          //max 4 guests
     int roomNumber;
     size_t guestCount; //needed for other classes
 
@@ -40,7 +38,8 @@ public:
 
     //print functions
     void printGuests() const;
-    string toString() const;
+
+    std::string toString() const;
 };
 
 #endif

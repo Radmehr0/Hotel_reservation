@@ -6,14 +6,12 @@
 #include <array>
 #include <string>
 
-using namespace std;
-
 class Information
 {
 private:
     static size_t const maxNameSize = 50;   //const class variable
-    array <char,maxNameSize> firstName;
-    array <char, maxNameSize> lastName;
+    std::array <char,maxNameSize> firstName;
+    std::array <char, maxNameSize> lastName;
     Date birthDate;                         //class composition
 
 public:

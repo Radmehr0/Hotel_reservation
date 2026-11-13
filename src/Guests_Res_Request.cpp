@@ -2,8 +2,6 @@
 #include "Guests.h"
 #include <iostream>
 
-using namespace std;
-
 int Guests_Res_Request::counter = 0; //static var initialization
 
 int Guests_Res_Request::numberofNightsCalculation(const Guests& g) const
@@ -48,9 +46,9 @@ int Guests_Res_Request::getNumberofNights() const
 //print function
 void Guests_Res_Request::printRequest() const
 {
-    cout << "ReservationID: " << reservationID << endl;
-    cout << "Number of Nights: " << numberofNights << endl;
-    cout << guests.toString();
+    std::cout << "ReservationID: " << reservationID << std::endl;
+    std::cout << "Number of Nights: " << numberofNights << std::endl;
+    std::cout << guests.toString();
 }
 
 
