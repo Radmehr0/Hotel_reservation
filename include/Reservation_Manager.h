@@ -1,8 +1,6 @@
 #ifndef RESERVATION_MANAGER_H
 #define RESERVATION_MANAGER_H
-
 #include "Guests_Res_Request.h"
-
 
 class Reservation_Manager
 {

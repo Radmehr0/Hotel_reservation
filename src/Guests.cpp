@@ -5,8 +5,6 @@
 #include <array>
 #include <sstream>
 
-using namespace std;
-
 Guests::Guests() : checkIN(), checkOUT(), guestsInfo(), roomNumber(1), guestCount(0){}
 
 Guests::Guests(const Date& chIN, const Date& chOUT, int rNum) : checkIN(chIN), checkOUT(chOUT), guestsInfo{}, roomNumber(rNum), guestCount(0){}
@@ -66,13 +64,13 @@ int Guests::getGuestCount() const
 //print function
 void Guests::printGuests() const
 {
-    cout << toString();
+    std::cout << toString();
 }
 
 //toString function
-string Guests::toString() const
+std::string Guests::toString() const
 {
-    ostringstream out; //std::ostringstream class uses string buffer and treat a string as an output stream
+    std::ostringstream out; //std::ostringstream class uses string buffer and treat a string as an output stream
 
     out << "Room Number: " << roomNumber << "\n";  // out same as cout
 

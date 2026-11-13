@@ -42,7 +42,7 @@ int Reservation_Manager::processRequest(Guests_Res_Request* req_ptr)
         startDayIndex < 0 || startDayIndex >= max_no_of_nights ||
         numNights <= 0 || (startDayIndex + numNights) > max_no_of_nights)
     {
-        cout << "Reservation ID: " << req_ptr->getReservationID()
+        std::cout << "Reservation ID: " << req_ptr->getReservationID()
              << " FAILED: INVALID dates or room\n";
         delete req_ptr;
         return -1;
@@ -52,7 +52,7 @@ int Reservation_Manager::processRequest(Guests_Res_Request* req_ptr)
     {
         if (calendar[startDayIndex + i][roomIndex] != 0)
         {
-            cout << "Reservation ID: " << req_ptr->getReservationID()
+            std::cout << "Reservation ID: " << req_ptr->getReservationID()
                  << " FAILED: Room is occupied.\n";
             delete req_ptr;
             return -1;
@@ -63,7 +63,7 @@ int Reservation_Manager::processRequest(Guests_Res_Request* req_ptr)
     for (int i = 0; i < numNights; i++)
         calendar[startDayIndex + i][roomIndex] = id;
     requestsArr[requestCounter++] = req_ptr;
-    cout << "Reservation ID: " << id << " CONFIRMED!\n";
+    std::cout << "Reservation ID: " << id << " CONFIRMED!\n";
     return id;
 }
 
@@ -75,14 +75,14 @@ void Reservation_Manager::printReservationsInfo(int resID) const
     {
         if (requestsArr[i] != nullptr && requestsArr[i]->getReservationID() == resID)
         {
-            cout << "Reservation Info: "<<endl;
+            std::cout << "Reservation Info: "<<std::endl;
             requestsArr[i]->printRequest();
             found = true;
             break;
         }
     }
     if (!found)
-        cout << "Reservation ID: " << resID << " NOT FOUND!" << endl;
+        std::cout << "Reservation ID: " << resID << " NOT FOUND!" << std::endl;
 }
 
 //Cancel function
@@ -100,7 +100,7 @@ bool Reservation_Manager::cancelReservation(int resID)
 
     if (foundIndex == -1)
     {
-        cout << "Reservation ID: " << resID << " NOT FOUND!\n";
+        std::cout << "Reservation ID: " << resID << " NOT FOUND!\n";
         return false;
     }
 
@@ -125,7 +125,7 @@ bool Reservation_Manager::cancelReservation(int resID)
     requestsArr[requestCounter - 1] = nullptr;
     requestCounter--;
 
-    cout << "Reservation ID: " << id << " CANCELLED successfully!\n";
+    std::cout << "Reservation ID: " << id << " CANCELLED successfully!\n";
     return true;
 }
 
@@ -134,28 +134,28 @@ void Reservation_Manager::printCalendar() const
 {
     const int firstColumWidth = 12; // Width for "Night\Room" and "Mar X"
     const int roomColumWidth = 4;   // Width for room numbers/IDs
-    cout << endl;
+    std::cout << std::endl;
 
-    cout << left << setw(firstColumWidth) << "Night\\Room";
+    std::cout << std::left << std::setw(firstColumWidth) << "Night\\Room";
     for (int c = 1; c <= no_of_rooms; c++) {
-        cout << right << setw(roomColumWidth) << c;
+        std::cout << std::right << std::setw(roomColumWidth) << c;
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    string line (firstColumWidth + (no_of_rooms * roomColumWidth), '-'); //----------------
-    cout << line << endl;
+    std::string line (firstColumWidth + (no_of_rooms * roomColumWidth), '-'); //----------------
+    std::cout << line << std::endl;
 
     for (int r = 0; r < max_no_of_nights; r++)
     {
-        string dateLabel = "Mar " + to_string(r + 1); //Mar 1
-        cout << left << setw(firstColumWidth) << dateLabel;
+        std::string dateLabel = "Mar " + std::to_string(r + 1); //Mar 1
+        std::cout << std::left << std::setw(firstColumWidth) << dateLabel;
         for (int c = 0; c < no_of_rooms; c++)
         {
-            cout << right << setw(roomColumWidth) << calendar[r][c];
+            std::cout << std::right << std::setw(roomColumWidth) << calendar[r][c];
         }
-        cout << endl;
+        std::cout << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
 }
 
 

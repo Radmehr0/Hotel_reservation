@@ -5,8 +5,6 @@
 #include <cstring>
 #include <string>
 
-using namespace std;
-
 Information::Information() : birthDate()
 {
     firstName[0] = '\0';
@@ -66,9 +64,9 @@ Date Information::getBirthDate() const
 //Printing info
 void Information::printInfo() const
 {
-    cout << firstName.data() << " " << lastName.data() << " (";
+    std::cout << firstName.data() << " " << lastName.data() << " (";
     birthDate.printDate();
-    cout << ") "<< endl;
+    std::cout << ") "<< std::endl;
 }
 
 
